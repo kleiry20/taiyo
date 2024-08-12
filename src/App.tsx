@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Contact from "./components/Contact/Contact";
+
+const Home = () => <div>Home Page</div>;
+const Map = () => <div>Map Page</div>;
+
+const Layout = () => {
+  return (
+    <div className="layout">
+      <header className="header">Header</header>
+      <div style={{ display: "flex" }}>
+        <Sidebar />
+        <main className="main">
+          <Outlet />
+        </main>
+      </div>
+    </div>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="map" element={<Map />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 

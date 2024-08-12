@@ -1,0 +1,25 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.back {
+  margin-bottom: 2rem;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-btn {
+  border: 1px solid black;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.result {
+  margin: 2rem 0;
+}
